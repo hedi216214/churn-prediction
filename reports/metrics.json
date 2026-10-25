@@ -1,0 +1,42 @@
+{
+  "data": "telco_churn_simulated.csv",
+  "rows": 7043,
+  "best_model": "logistic_regression",
+  "cross_validation": {
+    "logistic_regression": {
+      "roc_auc_mean": 0.8327,
+      "roc_auc_std": 0.0054
+    },
+    "gradient_boosting": {
+      "roc_auc_mean": 0.8165,
+      "roc_auc_std": 0.0049
+    }
+  },
+  "test": {
+    "roc_auc": 0.8123,
+    "pr_auc": 0.5997,
+    "churn_rate": 0.274,
+    "threshold": 0.15,
+    "precision_at_threshold": 0.4356,
+    "recall_at_threshold": 0.9197,
+    "customers_contacted": 815,
+    "test_customers": 1409,
+    "expected_profit": 52085.47,
+    "profit_contact_everyone": 30642.72
+  },
+  "assumptions": {
+    "offer_cost": 50.0,
+    "save_rate": 0.3,
+    "months_saved": 12
+  },
+  "top_features": {
+    "tenure": 0.1183,
+    "Contract": 0.0955,
+    "MonthlyCharges": 0.0197,
+    "InternetService": 0.0107,
+    "PaymentMethod": 0.0104,
+    "OnlineSecurity": 0.0038,
+    "SeniorCitizen": 0.0034,
+    "TechSupport": 0.0015
+  }
+}
