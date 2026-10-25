@@ -1,5 +1,5 @@
 data:
-	python data/generate_data.py
+	python data/make_dataset.py
 train:
 	python src/train.py
 test:

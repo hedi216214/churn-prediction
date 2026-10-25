@@ -19,7 +19,7 @@ customer data (CSV) → cleaning → preprocessing (scaling + one-hot)
 
 The code uses the column layout of the public **IBM Telco Customer Churn** dataset (7,043 customers, 21 columns).
 
-- `data/generate_data.py` creates a **simulated** dataset with that same layout, so the project runs with no download. Its churn rules are written in the file: short tenure, month-to-month contracts, fiber internet and electronic-check payment raise the risk, and security and tech-support add-ons lower it.
+- `data/make_dataset.py` creates a **simulated** dataset with that same layout, so the project runs with no download. Its churn rules are written in the file: short tenure, month-to-month contracts, fiber internet and electronic-check payment raise the risk, and security and tech-support add-ons lower it.
 - To use the real data, download `WA_Fn-UseC_-Telco-Customer-Churn.csv` from Kaggle and run `python src/train.py --data path/to/file.csv`.
 
 ## Results on the simulated data
@@ -45,7 +45,7 @@ The profit assumptions are in `src/train.py`: an offer costs 50, it keeps 30% of
 ```bash
 python -m venv .venv && source .venv/bin/activate   # Windows: .venv\Scripts\activate
 pip install -r requirements.txt
-python data/generate_data.py          # simulated data
+python data/make_dataset.py           # simulated data
 python src/train.py                   # trains, writes models/ and reports/
 python -m pytest -q tests             # 2 tests
 cd src && uvicorn api:app --reload    # API on http://127.0.0.1:8000/docs
@@ -73,7 +73,7 @@ curl -X POST http://127.0.0.1:8000/predict -H "Content-Type: application/json" -
 ## Project structure
 
 ```
-data/generate_data.py   simulated data with the Telco schema
+data/make_dataset.py    simulated data with the Telco schema
 src/features.py         cleaning + preprocessing pipeline
 src/train.py            CV comparison, evaluation, threshold, explainability, saving
 src/predict.py          input validation (Pydantic) and scoring
