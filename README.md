@@ -36,9 +36,7 @@ Logistic regression beats gradient boosting here because the simulated churn rul
 
 The profit assumptions are in `src/train.py`: an offer costs 50, it keeps 30% of real churners, and a saved customer brings 12 months of revenue.
 
-![ROC and PR curves](reports/roc_pr.png)
-![Feature importance](reports/feature_importance.png)
-![Profit by threshold](reports/threshold_profit.png)
+Running `python src/train.py` saves the ROC and precision-recall curves, the feature importance chart and the profit-by-threshold curve in `reports/`, next to `metrics.json`.
 
 ## Run it
 
